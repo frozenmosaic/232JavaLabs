@@ -1,0 +1,33 @@
+package lab02;
+
+import java.util.Scanner;
+
+public class RangeFinder {
+
+	public static void main(String[] args) {
+		Scanner scr = new Scanner(System.in);
+		
+		String[] input = scr.nextLine().split(" ");
+		int[] values = new int[input.length];
+		for (int i = 0; i < input.length; i++) {
+			values[i] = Integer.parseInt(input[i]);
+		}
+		
+		int min = Integer.MAX_VALUE;
+		int max = Integer.MIN_VALUE;
+		
+		for (int i = 0; i < values.length; i++) {
+			if (values[i] >= max) {
+				max = values[i];
+			}
+			if (values[i] <= min) {
+				min = values[i];
+			}
+		}
+		scr.close();
+//		System.out.println("min = " + min + ", max = " + max);
+		
+		int range = max - min;
+		System.out.println("The range is " + range + ".");
+	}
+}

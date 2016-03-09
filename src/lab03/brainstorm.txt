@@ -1,0 +1,92 @@
+APPROACHES:
+nested for loops => O(n^2)
+sort array => O(n.logn)
+sort + binary search => O(logn)
+frequency counting => O(n)
+
+ADDITIONAL TESTS:
+duplicate values
+all same values
+sorted list
+max & min values
+max & min N, K
+K = 0
+
+FIRST APPROACH:
+public static void main(String[] args) {
+		Scanner scr = new Scanner(System.in);
+		
+		String[] pre = scr.nextLine().split(" ");
+		String[] values = scr.nextLine().split(" ");
+		
+		int n = Integer.parseInt(pre[0]);
+		int k = Integer.parseInt(pre[1]);
+
+		int count = 0;
+		
+		for (int i=0; i < n; i++) {
+			int cur = Integer.parseInt(values[i]);
+			
+			for (int j=i+1; j < n; j++) {
+				int next = Integer.parseInt(values[j]);
+				
+				if (Math.abs(cur - next) == k) {
+					count++;
+				}
+			}
+		}
+		
+		System.out.println(count);
+		scr.close();
+	}
+	
+SECOND APPROACH: sort + binary search
+public static void main(String[] args) {
+		Scanner scr = new Scanner(System.in);
+		int count = 0;
+		int n = scr.nextInt();
+		int k = scr.nextInt();
+
+		int[] values = new int[n];
+		
+		for (int i=0; i < n; i++) {
+			values[i] = scr.nextInt();
+		}
+		
+		Arrays.sort(values);
+		int ind = 0;
+		while (ind < n) {
+			int cur = values[ind];
+			int found = Arrays.binarySearch(values,cur+k);
+			int freq = 0;
+			
+			if (found >= 0) {
+				freq++;
+				for (int j = found-1; j >= 0; j--) {
+					if (values[j] == cur+k) {
+						freq++;
+					}
+				}
+				
+				for (int j = found+1; j < n; j++) {
+					if (values[j] == cur+k) {
+						freq++;
+					}
+				}
+				System.out.println(freq);
+				
+			}
+			
+			if (freq == 0) {
+				ind++;
+			} else {
+				ind = ind + freq;
+			}
+			
+			count = count + freq;
+			
+		}
+		
+		System.out.println(count);
+		scr.close();
+	}

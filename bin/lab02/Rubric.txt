@@ -1,0 +1,94 @@
+Lab #2 - Introductory Problems
+
+Score:	43.5 / 48 = 91%
+
+Range Finder:
+
+  15 / 15	-	Correctness
+  	  										Passes
+  	Test Name:								Y	N
+  	-----------------------------------------------
+  	Sample Input 1							X
+  	Values in Decreasing Order				X
+  	All Equal Values						X
+  	All Negative Inputs						X
+  	Single Zero 							X
+  	All Zeros								X
+  	Smallest before Largest 				X
+  	Largest before Smallest					X
+  	Duplicate minimum value					X
+  	Duplicate maximum value					X
+  	Positive and negative values			X
+  	Two Values in Increasing Order			X
+  	Two Values in Decreasing Order			X
+  	Stress Test								X
+  	Large Input Test						X
+  
+  3 / 3	-	Code Quality
+  
+  * Using < and > in the conditionals rather than >= and <= will
+    be more efficient in situations where there are lots of duplicate
+    values.
+    
+  1 / 3	-	Documentation/Readability
+  
+  * For information about expectations for documentation 
+    and readability see:
+      * Lab #1 - section on "Documenting Code" at the end.
+      * The "General Lab Information" document linked on the 
+        course home page.
+        
+ 2.5 / 3	-	Testing Quality
+
+  * Thorough testing should also include at least:
+	  * one case where all numbers are the same.
+	  * cases where largest/smallest are first/last.
+	  
+  * The test methods should have more informative names and
+    more informative failure messages from the runTest method.
+    The given methods are named testSample1 because they correspond
+    to the sample input from the problem.
+    
+Mean Means:
+
+  13 / 13	-	Correctness
+  											Passes
+  	Test Name:								Y	N
+  	-----------------------------------------------
+  	Sample Input 1							X
+  	Sample Input 2							X
+  	Ave of all Not Same as Ave of Aves		X
+  	Only one line of input					X
+  	One line with one value					X
+  	Many lines one value each				X
+  	Line with negative numbers				X
+  	Line with pos and neg numbers			X
+  	Line starts with -1						X
+  	Line has multiple -1's					X
+  	Line ends with -1						X
+  	Result rounds to .00					X
+  	Stress Test								X
+  	
+  3 / 3	-	Code Quality
+
+  2 / 3	-	Documentation/Readability
+  
+  * For information about expectations for documentation 
+    and readability see:
+      * Lab #1 - section on "Documenting Code" at the end.
+      * The "General Lab Information" document linked on the 
+        course home page.
+        
+  2 / 3	-	Testing Quality
+  
+  * Thorough testing should also include at least:
+	  * one case where the result rounds off to .x0 or .00 
+	    to test the output formatting.
+	  * one case where there is only one line of input values.
+	    
+  2 / 2	- 	Additional Requirements
+  											Satisfied
+  	Requirement								Y	N
+  	------------------------------------------------
+  	>=1 test reads input from text file		X
+	>=1 test reads output from text file	X

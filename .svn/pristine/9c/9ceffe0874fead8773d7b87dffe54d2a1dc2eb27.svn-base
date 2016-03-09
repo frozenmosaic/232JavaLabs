@@ -1,0 +1,216 @@
+Ex1:
+Output expected: m
+Output generated: m
+
+Ex2: 
+Output expected: 0
+
+Ex3:
+Exception in thread "main" java.lang.StringIndexOutOfBoundsException: String index out of range: 9
+	at java.lang.String.charAt(String.java:658)
+	at lab01.WordAnalyzer.firstRepeatedCharacter(WordAnalyzer.java:33)
+	at lab01.WordAnalyzer.main(WordAnalyzer.java:104)
+
+Ex4:
+a. StringIndexOutOfBoundsException
+b. attempting to accessing a character in a string that has an invalid index (larger than the total number of characters)
+c. charAt
+d. line number 658
+e. firstRepeatedCharacter
+f. line number 33
+
+Ex5:
+Clicking on the blue links take you back to the line that calls the method that causes the exception.
+
+Ex6:
+Method #1: Preferences -> General -> Editors -> Text Editors -> Show line number
+Method #2: Right click on the gutter, select "Show line number"
+
+Ex7:
+exception: NullPointerException
+line number in WordAnalyzer class: 31
+
+Ex8: 
+public WordAnalyzer(String aWord) throws IllegalArgumentException {
+		if (aWord == null) {
+			throw new IllegalArgumentException("Please supply a word");
+		}
+		word = aWord;
+	}
+
+Ex9:
+The stack trace is different:
+Exception in thread "main" java.lang.IllegalArgumentException: Please supply a word
+	at lab01.WordAnalyzer.<init>(WordAnalyzer.java:21)
+	at lab01.WordAnalyzer.main(WordAnalyzer.java:106)
+	
+Ex10:
+exception: StringIndexOutOfBoundsException
+line: 66
+content from line: "if (word.charAt(i) == c) {"
+
+Ex11:
+error: AssertionError
+line: 65
+content of line: "assert pos >= 0 : "pos must be >=0 but was " + pos;"
+
+Ex12: "assert pos < word.length(): "post must be less than length of string but was " + pos;"
+
+Ex13:
+main method changed to:
+	WordAnalyzer wa1 = new WordAnalyzer("programming");
+	System.out.println(wa1.find('g', 11));
+stack trace:
+Exception in thread "main" java.lang.AssertionError: post must be less than length of string but was 11
+	at lab01.WordAnalyzer.find(WordAnalyzer.java:66)
+	at lab01.WordAnalyzer.main(WordAnalyzer.java:113)
+
+Ex14: confirmed that two stack traces are similar
+
+Ex15: output:
+"i = 0
+ ch = D
+ nextCh = i
+i = 1
+ ch = i
+ nextCh = c
+i = 2
+ ch = c
+ nextCh = k
+i = 3
+ ch = k
+ nextCh = i
+i = 4
+ ch = i
+ nextCh = n
+i = 5
+ ch = n
+ nextCh = s
+i = 6
+ ch = s
+ nextCh = o
+i = 7
+ ch = o
+ nextCh = n
+i = 8
+ ch = n"
+ 
+Ex16:
+The output stops at i=8. ch=8 shows that the current character is n, which is the last character.
+Right after the output is the stack trace showing the exception. This is because i+1=9, and there is no character at index 9.
+nextCh then does not exist.   
+
+Ex17: 
+			if (i < word.length() - 1) {
+				char nextCh = word.charAt(i + 1);
+
+				if (ch == nextCh) {
+					return ch;
+				}
+			}
+
+Ex18: [done]
+
+Ex19: 
+expected output: m
+output generated: P
+
+Ex20: [done]
+
+Ex21:
+The program returns P because the original and new indexes at which P occurs are not checked whether they are similar.
+
+Ex22:
+changed line 70 to "if (nextLoc >= 0 && nextLoc != i) {"
+
+Ex23:
+Logger.getLogger("fMP").setLevel(Level.OFF);
+
+Ex24:
+output expected: 5
+output generated: 5
+
+Ex25:
+output expected: 5
+output generated: 4
+
+Ex26:
+A breakpoint has been set if there is a dot in front of the line in the gutter.
+
+Ex27:
+Method 1: in the Debug Tab, under "Thread" reads "WordAnalyzer.main(String []) line: 126"
+Method 2: line 126 has green shading over it
+
+Ex28:
+The green shade jumps over to the next line, while on the right hand side under "Variables" tab variable wa1 is shown.
+
+Ex29:
+Debugger jumps into the first line of the current method being called, which is countRepeatedCharacters().
+
+Ex30: 
+Variable in scope: this, because an method is called on the WordAnalyzer object.
+Value of field 'word' is "aabbccccccbbbdd".
+
+Ex31:
+Variable numGroups is shown with value 0, because executing the previous line instantiated an int variable named numGroups with value initialized to 0.
+
+Ex32:
+Variable chPos is shown with value 1, because at start of the for loop chPos is initialized to value 1.
+
+Ex33: 
+Clicking 'Step Into' will open the charAt method of String class.
+
+Ex34:
+The body of the 'if' statement won't execute at this point because the condition is not yet satisfied (word.charAt(chPos) is "a" while word.charAt(chPos+1) is "b").
+
+Ex35:
+The body of the inner 'if' statement will execute at this point because the condition is yet satisfied (word.charAt(chPos) is "b" while word.charAt(chPos-1) is "a").
+
+Ex36:
+chPos is now 4. At this point numGroups should be 2, not 1, because there have been 2 groups of repeated characters "aa" and "bb".
+
+Ex37:
+In the "Debug" tab there is the word "<terminated>" in front of the name of the Java Application (in this case "WordAnalyzer").
+
+Ex38:
+int numGroups = 0; // the number of groups seen so far.
+		
+		if (word.charAt(0) == word.charAt(1)) {
+			numGroups++;
+		}
+		
+		for (int chPos = 1; chPos < word.length() - 1; chPos++) {
+			if (word.charAt(chPos) == word.charAt(chPos + 1)) {
+				// found a repetition
+				if (word.charAt(chPos - 1) != word.charAt(chPos)) {
+					// it's at the start of a group
+					numGroups++;
+				}
+			}
+		}
+		return numGroups;
+
+Ex39:
+	/**
+	 * Finds the character c starting at the character at the index specified by pos.
+	 * @param c the character to find
+	 * @param pos the starting index
+	 * @return the character if found, -1 if not
+	 */
+	private int findCharacterFromIndex(char c, int start) {
+		/*
+		 * Catches invalid starting index
+		 */
+		assert start >= 0 : "pos must be >=0 but was " + start;
+		assert start < word.length() : "post must be less than length of string but was "
+				+ start;
+		// looping through the string starting at character at index start
+		for (int i = start; i < word.length(); i++) {
+			if (word.charAt(i) == c) {
+				return i;
+			}
+		}
+		
+		return -1;
+	}
+		

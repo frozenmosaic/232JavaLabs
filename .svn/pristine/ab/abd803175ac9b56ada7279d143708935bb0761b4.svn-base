@@ -1,0 +1,141 @@
+Ex1:
+Output expected: m
+Output generated: m
+
+Ex2: 
+Output expected: 0
+
+Ex3:
+Exception in thread "main" java.lang.StringIndexOutOfBoundsException: String index out of range: 9
+	at java.lang.String.charAt(String.java:658)
+	at lab01.WordAnalyzer.firstRepeatedCharacter(WordAnalyzer.java:33)
+	at lab01.WordAnalyzer.main(WordAnalyzer.java:104)
+
+Ex4:
+a. StringIndexOutOfBoundsException
+b. attempting to accessing a character in a string that has an invalid index (larger than the total number of characters)
+c. charAt
+d. line number 658
+e. firstRepeatedCharacter
+f. line number 33
+
+Ex5:
+Clicking on the blue links take you back to the line that calls the method that causes the exception.
+
+Ex6:
+Method #1: Preferences -> General -> Editors -> Text Editors -> Show line number
+Method #2: Right click on the gutter, select "Show line number"
+
+Ex7:
+exception: NullPointerException
+line number in WordAnalyzer class: 31
+
+Ex8: 
+public WordAnalyzer(String aWord) throws IllegalArgumentException {
+		if (aWord == null) {
+			throw new IllegalArgumentException("Please supply a word");
+		}
+		word = aWord;
+	}
+
+Ex9:
+The stack trace is different:
+Exception in thread "main" java.lang.IllegalArgumentException: Please supply a word
+	at lab01.WordAnalyzer.<init>(WordAnalyzer.java:21)
+	at lab01.WordAnalyzer.main(WordAnalyzer.java:106)
+	
+Ex10:
+exception: StringIndexOutOfBoundsException
+line: 66
+content from line: "if (word.charAt(i) == c) {"
+
+Ex11:
+error: AssertionError
+line: 65
+content of line: "assert pos >= 0 : "pos must be >=0 but was " + pos;"
+
+Ex12: "assert pos < word.length(): "post must be less than length of string but was " + pos;"
+
+Ex13:
+main method changed to:
+	WordAnalyzer wa1 = new WordAnalyzer("programming");
+	System.out.println(wa1.find('g', 11));
+stack trace:
+Exception in thread "main" java.lang.AssertionError: post must be less than length of string but was 11
+	at lab01.WordAnalyzer.find(WordAnalyzer.java:66)
+	at lab01.WordAnalyzer.main(WordAnalyzer.java:113)
+
+Ex14: confirmed that two stack traces are similar
+
+Ex15: output:
+"i = 0
+ ch = D
+ nextCh = i
+i = 1
+ ch = i
+ nextCh = c
+i = 2
+ ch = c
+ nextCh = k
+i = 3
+ ch = k
+ nextCh = i
+i = 4
+ ch = i
+ nextCh = n
+i = 5
+ ch = n
+ nextCh = s
+i = 6
+ ch = s
+ nextCh = o
+i = 7
+ ch = o
+ nextCh = n
+i = 8
+ ch = n"
+ 
+Ex16:
+The output stops at i=8. ch=8 shows that the current character is n, which is the last character.
+Right after the output is the stack trace showing the exception. This is because i+1=9, and there is no character at index 9.
+nextCh then does not exist.   
+
+Ex17: 
+			if (i < word.length() - 1) {
+				char nextCh = word.charAt(i + 1);
+
+				if (ch == nextCh) {
+					return ch;
+				}
+			}
+
+Ex18: [done]
+
+Ex19: 
+expected output: m
+output generated: P
+
+Ex20: [done]
+
+Ex21:
+The program returns P because the original and new indexes at which P occurs are not checked whether they are similar.
+
+Ex22:
+changed line 70 to "if (nextLoc >= 0 && nextLoc != i) {"
+
+Ex23:
+Logger.getLogger("fMP").setLevel(Level.OFF);
+
+Ex24:
+output expected: 5
+output generated: 5
+
+Ex25:
+output expected: 5
+output generated: 4
+
+Ex26:
+A breakpoint has a dot in front of the line in the gutter.
+
+
+		

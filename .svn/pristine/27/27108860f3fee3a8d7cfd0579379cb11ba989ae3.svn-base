@@ -1,0 +1,82 @@
+package lab06;
+
+import java.util.*;
+
+public class ParadeShuffle {
+
+	public static void main(String[] args) {
+		Scanner scr = new Scanner(System.in);
+
+		int numFloats = scr.nextInt();
+
+		Queue<Integer> pre = new LinkedList<Integer>();
+		Queue<Integer> order = new LinkedList<Integer>();
+		Stack<Integer> alley = new Stack<Integer>();
+
+		int i = 0;
+		while (i < numFloats) {
+			int val = scr.nextInt();
+			pre.add(val);
+			i++;
+		}
+
+		i = 0;
+		while (i < numFloats) {
+			int val = scr.nextInt();
+			order.add(val);
+			i++;
+		}
+
+		boolean solved = true;
+		while (order.size() > 0) {
+			int expected = order.peek();
+			
+			if (pre.size() > 0 && pre.peek().equals(expected)) {
+				pre.remove();
+				order.remove();
+//				System.out.println("a");
+			} else if (alley.size() > 0 && alley.peek().equals(expected)) {
+				alley.pop();
+				order.remove();
+//				System.out.println("b");
+			} else {
+				if (pre.size() == 0) {
+					solved = false;
+//					System.out.println("c");
+					break;
+				} else {
+					alley.push(pre.poll());
+//					System.out.println("d");
+				}
+			}
+			
+		}
+
+//		for (Integer element : pre) {
+//			System.out.print(element.toString() + " ");
+//		}
+//		System.out.println();
+//
+//		for (Integer element : order) {
+//			System.out.print(element.toString() + " ");
+//		}
+//		System.out.println();
+//
+//		for (Integer element : alley) {
+//			System.out.println("alley");
+//			System.out.print(element.toString() + " ");
+//		}
+//		System.out.println();
+//
+
+		
+		if (solved) {
+			System.out.println("Yes.");
+		} else {
+			System.out.println("No.");
+		}
+		
+		scr.close();
+	}
+
+}

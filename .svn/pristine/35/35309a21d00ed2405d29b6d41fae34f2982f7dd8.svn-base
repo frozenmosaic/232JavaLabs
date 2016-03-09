@@ -1,0 +1,59 @@
+Lab #3 - Counting Pairs
+
+Score:	41.5 / 43 = 97%
+
+Range Finder:
+
+  34 / 34	-	Correctness
+  	  										Passes
+  	Test Name:								Y	N
+  	-----------------------------------------------
+  	Sample Input 1							X
+  	Sample Input 2							X
+  	2InputsPairOrdered						X
+  	2InputsPairRevOrdered					X
+  	2InputsNoPairOrdered					X
+  	2InputsNoPairRevOrdered					X
+  	OneDuplicateThatPairs					X
+  	MultipleDuplicateThatPair				X
+  	DuplicatesNoPairs						X
+  	ZeroDifferenceNoPairs					X
+  	ZeroDifferenceOnePair					X
+  	ZeroDifferenceThreeOfSame				X
+  	ZeroDifferenceAllSame					X
+  	ZeroDifference5Same						X
+  	AllSuccessorsPairOrdered				X
+  	AllSuccessorsPairUnordered				X
+  	StressTest								X
+
+  3 / 3	-	Code Quality
+
+  2 / 3	-	Documentation/Readability
+  * Good line level comments!
+  
+  * There should be a class level JavaDoc comment indicating partners,
+    assignment, data and a high level explanation of the approach being
+    used to solve the problem.
+     
+  * For complete information about expectations for documentation 
+    and readability see:
+      * Lab #1 - section on "Documenting Code" at the end.
+      * The "General Lab Information" document linked on the 
+        course home page.
+        
+  2.5 / 3	-	Testing Quality
+
+  * Looks like a nice comprehensive set of tests.
+  
+  * The test methods should have more informative names and
+    more informative failure messages from the runTest method.
+    The methods that I gave were named something like "testSample1"
+    because they correspond to the sample input(s) from the problem.
+    The names you chose should be descriptive of what is being tested.
+    See the list of test names in the rubric above for some examples,
+    those are the names of the tests in my suite of reference tests
+    that were run against your solution.
+    
+  * Each test should contain a block comment explaining the purpose of the test.
+    Some of the later tests do and that is very helpful in understanding what
+    you are testing in each test.

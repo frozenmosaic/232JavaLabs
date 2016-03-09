@@ -1,0 +1,96 @@
+package lab06;
+
+import java.util.*;
+
+public class ParadeShuffle {
+
+	public static void main(String[] args) {
+		Scanner scr = new Scanner(System.in);
+
+		int numFloats = scr.nextInt();
+
+		Queue<Integer> pre = new LinkedList<Integer>();
+		Queue<Integer> order = new LinkedList<Integer>();
+		Stack<Integer> alley = new Stack<Integer>();
+
+		int i = 0;
+		while (i < numFloats) {
+			int val = scr.nextInt();
+			pre.add(val);
+			i++;
+		}
+
+		i = 0;
+		while (i < numFloats) {
+			int val = scr.nextInt();
+			order.add(val);
+			i++;
+		}
+
+		// for (Integer element : pre) {
+		// System.out.print(element.toString() + " ");
+		// }
+		//
+		// for (Integer element : order) {
+		// System.out.print(element.toString() + " ");
+		// }
+
+		boolean solved = true;
+		ArrayList<Integer> finished = new ArrayList<Integer>();
+		while (order.size() > 0) {
+			int expected = order.peek();
+			int cur = pre.peek();
+			int waiting = 0;
+			try {
+				waiting = alley.peek();
+			} catch (EmptyStackException e) {
+				waiting = 0;
+			}
+
+			if (cur == expected) {
+				finished.add(pre.poll());
+				order.remove();
+			} else if (waiting == expected) {
+				finished.add(alley.pop());
+				order.remove();
+			} else if (cur != expected && waiting != expected && waiting != 0) {
+				solved = false;
+				break;
+			} else {
+				if (pre.size() > 0) {
+					alley.push(pre.poll());
+				} else {
+					solved = false;
+					break;
+				}	
+			}
+		}
+
+//		for (Integer element : pre) {
+//			System.out.print(element.toString() + " ");
+//		}
+//		System.out.println();
+//
+//		for (Integer element : order) {
+//			System.out.print(element.toString() + " ");
+//		}
+//		System.out.println();
+//
+//		for (Integer element : alley) {
+//			System.out.print(element.toString() + " ");
+//		}
+//		System.out.println();
+//
+//		for (Integer element : finished) {
+//			System.out.print(element.toString() + " ");
+//		}
+		if (solved) {
+			System.out.println("Yes.");
+		} else {
+			System.out.println("No.");
+		}
+		
+		scr.close();
+	}
+
+}
